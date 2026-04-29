@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worker Salary</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Salary Management</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="add-worker.html">Add Worker</a>
+        <a href="workers.html">Workers</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="salary.html">Salary</a>
+    </nav>
+</header>
+
+<div class="form-box">
+    <h2>Calculate Salary</h2>
+
+    <input type="text" id="workerName" placeholder="Worker Name"><br><br>
+
+    <input type="number" id="days" placeholder="Total Working Days"><br><br>
+
+    <input type="number" id="rate" placeholder="Per Day Salary"><br><br>
+
+    <button onclick="calculateSalary()">Calculate</button>
+</div>
+
+<div class="list-box">
+    <h2>Salary Result</h2>
+    <div id="salaryResult"></div>
+</div>
+
+<script>
+function calculateSalary(){
+
+    let name = document.getElementById("workerName").value;
+    let days = document.getElementById("days").value;
+    let rate = document.getElementById("rate").value;
+
+    if(name=="" || days=="" || rate==""){
+        alert("Please fill all fields");
+        return;
+    }
+
+    let total = days * rate;
+
+    document.getElementById("salaryResult").innerHTML =
+    "<p><b>Name:</b> " + name + "</p>" +
+    "<p><b>Working Days:</b> " + days + "</p>" +
+    "<p><b>Per Day Salary:</b> ₹" + rate + "</p>" +
+    "<p><b>Total Salary:</b> ₹" + total + "</p>";
+}
+</script>
+
+</body>
+</html>

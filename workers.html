@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Workers List</title>
+<link rel="stylesheet" href="../Static/style.css">
+</head>
+<body>
+
+<h1>Workers List</h1>
+
+<div id="workerList"></div>
+
+<script>
+let workers = JSON.parse(localStorage.getItem("workers")) || [];
+
+let output = "";
+
+workers.forEach(function(w){
+ output += "<p>"+w.name+" - "+w.work+" - ₹"+w.salary+"</p>";
+});
+
+document.getElementById("workerList").innerHTML = output;
+</script>
+
+</body>
+</html>
